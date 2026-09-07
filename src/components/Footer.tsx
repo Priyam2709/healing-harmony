@@ -28,7 +28,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-gray-300 text-sm mb-6 max-w-sm leading-relaxed">
-              Holistic Health for Mind • Body • Soul. Led by Dr. Priyanka Saxena. Offering online emotional healing, yoga, life counselling, and naturopathy globally via Zoom and Google Meet.
+              Holistic Health for Mind • Body • Soul. Led by <strong>Dr. Priyanka Srivastava</strong> (Yog n Naturopathy Expert &amp; Holistic Health Coach). Offering online emotional healing, yoga, life counselling, and naturopathy globally via Zoom and Google Meet.
             </p>
             <div className="flex gap-3">
               <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-pink transition-colors">
@@ -67,9 +67,12 @@ export default function Footer() {
           <div className="md:col-span-4">
             <h4 className="text-base font-bold font-outfit mb-4 text-emerald-400">Online Consultations</h4>
             <ul className="space-y-3 text-sm text-gray-300">
-              <li className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>Dr. Priyanka Saxena</span>
+              <li className="flex items-start gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0" />
+                <div>
+                  <span className="font-semibold text-white block">Dr. Priyanka Srivastava</span>
+                  <span className="text-xs text-emerald-300 block">Yog n Naturopathy Expert • Holistic Health Coach</span>
+                </div>
               </li>
               <li className="flex items-center gap-2">
                 <Video className="w-4 h-4 text-blue-400 flex-shrink-0" />

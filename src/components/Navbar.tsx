@@ -44,7 +44,7 @@ export default function Navbar() {
                 Healing Harmony
               </span>
               <span className="text-[10px] text-gray-500 font-semibold tracking-wider uppercase block mt-0.5">
-                Wellness Club • Dr. Priyanka
+                Wellness Club • Dr. Priyanka Srivastava
               </span>
             </div>
           </a>

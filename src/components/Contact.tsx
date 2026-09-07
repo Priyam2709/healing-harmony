@@ -67,7 +67,7 @@ export default function Contact() {
 
   // Construct formatted message string for WhatsApp and Email
   const constructMessageText = () => {
-    return `*Namaste Dr. Priyanka Saxena,*
+    return `*Namaste Dr. Priyanka Srivastava,*
 I would like to inquire/book an online session with Healing Harmony Wellness Club:
 
 • *Name:* ${formData.name || "Client"}
@@ -171,9 +171,18 @@ Please let me know the upcoming available slots!`;
               Easy Online Booking
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-green font-outfit mb-6 leading-tight">
-              Connect Directly with <span className="text-primary-pink">Dr. Priyanka</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-green font-outfit mb-3 leading-tight">
+              Connect Directly with <span className="text-primary-pink">Dr. Priyanka Srivastava</span>
             </h2>
+
+            <div className="text-sm font-bold text-primary-green mb-6 flex flex-wrap gap-2">
+              <span className="px-3 py-1 bg-emerald-50 rounded-full border border-emerald-200">
+                Yog n Naturopathy Expert
+              </span>
+              <span className="px-3 py-1 bg-pink-50 text-primary-pink rounded-full border border-pink-200">
+                Holistic Health Coach
+              </span>
+            </div>
 
             <p className="text-gray-600 text-base sm:text-lg mb-10 leading-relaxed">
               Whether you need one-on-one emotional counselling, join daily yoga batches, or want a customized naturopathy plan, choose your preferred method to reach out.

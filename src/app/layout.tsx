@@ -13,8 +13,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Healing Harmony Wellness Club | Dr. Priyanka Saxena",
-  description: "Holistic Health for Mind, Body, and Soul. Join us for a healthy and happy life through natural and holistic methods.",
+  title: "Healing Harmony Wellness Club | Dr. Priyanka Srivastava",
+  description: "Holistic Health for Mind, Body, and Soul by Dr. Priyanka Srivastava - Yog n Naturopathy Expert & Holistic Health Coach. Online sessions via Zoom and Google Meet.",
 };
 
 export default function RootLayout({

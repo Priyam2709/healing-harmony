@@ -55,7 +55,7 @@ export default function About() {
             </h2>
             
             <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-              Healing Harmony Wellness Club is designed for women, children, and people of all ages who want to embrace a healthier lifestyle. Dr. Priyanka Saxena brings years of expertise in holistic treatments.
+              Healing Harmony Wellness Club is designed for women, children, and people of all ages who want to embrace a healthier lifestyle. <strong>Dr. Priyanka Srivastava</strong>, a dedicated <strong>Yog n Naturopathy Expert &amp; Holistic Health Coach</strong>, brings years of experience in natural therapies and holistic healing.
             </p>
 
             <div className="space-y-4 mb-10">

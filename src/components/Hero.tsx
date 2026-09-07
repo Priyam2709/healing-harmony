@@ -45,7 +45,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Embrace sustainable wellness, release emotional stress, and revitalize your health naturally with <strong>Dr. Priyanka Saxena</strong>. All consultations and daily batches conducted 100% online globally via <strong>Zoom &amp; Google Meet</strong>.
+            Embrace sustainable wellness, release emotional stress, and revitalize your health naturally with <strong>Dr. Priyanka Srivastava</strong>. All consultations and daily batches conducted 100% online globally via <strong>Zoom &amp; Google Meet</strong>.
           </motion.p>
           
           {/* Action CTAs */}
@@ -108,13 +108,13 @@ export default function Hero() {
               
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <div className="text-xs uppercase tracking-widest text-emerald-300 font-bold mb-1">
-                  Founder &amp; Holistic Healer
+                  Yog n Naturopathy Expert
                 </div>
                 <h3 className="font-outfit text-2xl font-bold">
-                  Dr. Priyanka Saxena
+                  Dr. Priyanka Srivastava
                 </h3>
-                <p className="text-xs text-gray-200 mt-1">
-                  Specialist in Emotional Release, Asana Therapy &amp; Mindset Transformation
+                <p className="text-xs text-gray-200 mt-1 font-medium">
+                  Holistic Health Coach • Yog n Naturopathy Expert
                 </p>
               </div>
             </div>
