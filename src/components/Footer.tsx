@@ -57,7 +57,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li><a href="#home" className="text-gray-300 hover:text-white transition-colors">Home</a></li>
               <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Specialized Services</a></li>
-              <li><a href="#video-reviews" className="text-gray-300 hover:text-white transition-colors">Client Video Stories</a></li>
+              <li><a href="#video-reviews" className="text-gray-300 hover:text-white transition-colors">Member Video Review</a></li>
               <li><a href="#sessions" className="text-gray-300 hover:text-white transition-colors">Live Session Previews</a></li>
               <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Dr. Priyanka</a></li>
               <li><a href="#events" className="text-gray-300 hover:text-white transition-colors">Organized Events</a></li>

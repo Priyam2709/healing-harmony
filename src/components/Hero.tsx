@@ -84,7 +84,7 @@ export default function Hero() {
             <span>5.0 Rating by 300+ Transformed Online Clients</span>
             <span className="hidden sm:inline">•</span>
             <a href="#video-reviews" className="text-primary-pink underline font-bold hover:text-dark-green">
-              Watch Video Stories
+              Watch Member Video
             </a>
           </div>
         </div>
