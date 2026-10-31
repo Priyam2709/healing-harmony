@@ -13,6 +13,8 @@ import {
   Sparkles,
   MessageCircle,
   ExternalLink,
+  Copy,
+  Check,
 } from "lucide-react";
 
 const serviceOptions = [
@@ -37,9 +39,12 @@ export default function Contact() {
     message: "",
   });
 
+  const TARGET_EMAIL = "healingharmonyclub@gmail.com";
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [lastAction, setLastAction] = useState<"whatsapp" | "email" | null>(null);
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   // Listen to select-service event from Services component
   useEffect(() => {
@@ -65,7 +70,7 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // Construct formatted message string for WhatsApp and Email
+  // Construct formatted message string for WhatsApp
   const constructMessageText = () => {
     return `*Namaste Dr. Priyanka Srivastava,*
 I would like to inquire/book an online session with Healing Harmony Wellness Club:
@@ -78,6 +83,22 @@ I would like to inquire/book an online session with Healing Harmony Wellness Clu
 • *Preferred Time:* ${formData.timeSlot}
 ${formData.message ? `• *Health Goals / Notes:* ${formData.message}` : ""}
 
+Please let me know the upcoming available slots!`;
+  };
+
+  // Construct clean plain-text email message
+  const constructEmailBody = () => {
+    return `Namaste Dr. Priyanka Srivastava,
+
+I would like to inquire / book an online session with Healing Harmony Wellness Club:
+
+• Name: ${formData.name || "Client"}
+• Phone/WhatsApp: ${formData.phone || "Not provided"}
+• Email: ${formData.email || "Not provided"}
+• Selected Service: ${formData.service}
+• Preferred Platform: ${formData.platform}
+• Preferred Time: ${formData.timeSlot}
+${formData.message ? `• Health Goals / Notes: ${formData.message}\n` : ""}
 Please let me know the upcoming available slots!`;
   };
 
@@ -130,27 +151,31 @@ Please let me know the upcoming available slots!`;
     setLastAction("email");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      await submitToApi();
+      setSubmitStatus("success");
 
-      if (response.ok) {
-        setSubmitStatus("success");
-      } else {
-        setSubmitStatus("error");
-      }
-
-      // Also trigger mailto fallback for direct client interaction
       const subject = encodeURIComponent(`Session Inquiry: ${formData.service} - ${formData.name}`);
-      const body = encodeURIComponent(constructMessageText());
-      window.location.href = `mailto:9214426091@healingharmony.com?subject=${subject}&body=${body}`;
+      const body = encodeURIComponent(constructEmailBody());
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${TARGET_EMAIL}&su=${subject}&body=${body}`;
+      
+      // Try opening Gmail web in a new tab first (works universally without local mail apps)
+      const newTab = window.open(gmailUrl, "_blank", "noopener,noreferrer");
+      if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
+        // Fallback to mailto if popups are blocked
+        window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
+      }
     } catch (error) {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const copyEmailDetails = () => {
+    const textToCopy = `To: ${TARGET_EMAIL}\nSubject: Session Inquiry: ${formData.service} - ${formData.name}\n\n${constructEmailBody()}`;
+    navigator.clipboard.writeText(textToCopy);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 3000);
   };
 
   return (
@@ -451,17 +476,48 @@ Please let me know the upcoming available slots!`;
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
-                      className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-start gap-3"
+                      className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm flex flex-col gap-3"
                     >
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Inquiry Initiated Successfully!</strong>
-                        <p className="text-xs text-emerald-700 mt-0.5">
-                          {lastAction === "whatsapp"
-                            ? "Your WhatsApp chat was opened with the pre-filled message. Dr. Priyanka will reply shortly!"
-                            : "Your email client and session inquiry have been submitted. We will contact you soon!"}
-                        </p>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="text-base text-emerald-900">Inquiry Initiated Successfully!</strong>
+                          <p className="text-xs text-emerald-700 mt-1 leading-relaxed">
+                            {lastAction === "whatsapp"
+                              ? "Your WhatsApp chat was opened with the pre-filled message. Dr. Priyanka will reply shortly!"
+                              : `We opened a pre-filled email draft to ${TARGET_EMAIL}. If your browser blocked the window or you don't have an email app installed, click below:`}
+                          </p>
+                        </div>
                       </div>
+
+                      {lastAction === "email" && (
+                        <div className="pt-2 flex flex-wrap gap-2 border-t border-emerald-200/60 mt-1">
+                          <a
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${TARGET_EMAIL}&su=${encodeURIComponent(`Session Inquiry: ${formData.service} - ${formData.name}`)}&body=${encodeURIComponent(constructEmailBody())}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 shadow-sm transition-all"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5" />
+                            Open in Gmail (Web)
+                          </a>
+                          <a
+                            href={`mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(`Session Inquiry: ${formData.service} - ${formData.name}`)}&body=${encodeURIComponent(constructEmailBody())}`}
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-emerald-300 text-emerald-800 text-xs font-bold hover:bg-emerald-100 transition-all"
+                          >
+                            <Mail className="w-3.5 h-3.5" />
+                            Default Mail App
+                          </a>
+                          <button
+                            type="button"
+                            onClick={copyEmailDetails}
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-gray-300 text-gray-700 text-xs font-bold hover:bg-gray-50 cursor-pointer transition-all"
+                          >
+                            {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                            {copiedEmail ? "Copied!" : "Copy Details"}
+                          </button>
+                        </div>
+                      )}
                     </motion.div>
                   )}
 
