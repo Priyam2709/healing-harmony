@@ -19,6 +19,17 @@ interface SessionVideo {
 
 const sessionVideos: SessionVideo[] = [
   {
+    id: "session-riverbank",
+    title: "Nature & Soul: Solo Riverbank Yogic Flow",
+    category: "Solo Nature Flow",
+    duration: "Master Practice",
+    platform: "Zoom",
+    format: "1-on-1 Private Session",
+    description: "Dr. Priyanka Srivastava practicing traditional grounding asanas in pristine nature by the riverbank. Demonstrating breath synchronization, flexibility, and meditative flow.",
+    thumbnail: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop",
+    videoUrl: "/videos/dr-priyanka-riverbank-yoga.mp4",
+  },
+  {
     id: "session-1",
     title: "Bollywood Beats Yoga & Rhythmic Asana Flow",
     category: "Bollywood Yoga & Aerobics",
@@ -72,17 +83,6 @@ const sessionVideos: SessionVideo[] = [
     description: "Gentle morning joint activations and rhythmic movement to popular music, tailored for building daily consistency.",
     thumbnail: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=800&auto=format&fit=crop",
     videoUrl: "/videos/bollywood-yoga-session-5.mp4",
-  },
-  {
-    id: "session-6",
-    title: "Zesty Bollywood Asana Aerobics & Stamina Boost",
-    category: "Cardio Stamina & Flow",
-    duration: "Live Session Clip",
-    platform: "Google Meet",
-    format: "Group Live Batch",
-    description: "High-vibe virtual session for women and homemakers combining cheerful choreography with authentic yogic breathing.",
-    thumbnail: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
-    videoUrl: "/videos/bollywood-yoga-session-6.mp4",
   },
 ];
 
