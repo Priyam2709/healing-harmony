@@ -39,7 +39,7 @@ export default function Contact() {
     message: "",
   });
 
-  const TARGET_EMAIL = "healingharmonyclub@gmail.com";
+  const TARGET_EMAIL = "priyankapolly@gmail.com";
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -291,7 +291,10 @@ Please let me know the upcoming available slots!`;
               </div>
 
               {/* Direct Email */}
-              <div className="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center gap-4">
+              <a
+                href="mailto:priyankapolly@gmail.com"
+                className="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center gap-4 hover:border-pink-200 transition-all"
+              >
                 <div className="w-12 h-12 rounded-xl bg-pink-50 text-primary-pink flex items-center justify-center">
                   <Mail className="w-6 h-6" />
                 </div>
@@ -300,10 +303,10 @@ Please let me know the upcoming available slots!`;
                     Email Inquiries
                   </div>
                   <div className="text-base font-bold text-dark-green">
-                    healingharmonyclub@gmail.com
+                    priyankapolly@gmail.com
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Satisfaction Guarantee Notice */}

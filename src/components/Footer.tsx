@@ -1,6 +1,6 @@
 "use client";
 
-import { Leaf, MessageCircle, Video } from "lucide-react";
+import { Leaf, MessageCircle, Video, Mail } from "lucide-react";
 
 const InstagramIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -82,6 +82,12 @@ export default function Footer() {
                 <MessageCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <a href="https://wa.me/919214426091" className="hover:text-emerald-300 underline font-semibold">
                   WhatsApp: +91 9214426091
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-pink-400 flex-shrink-0" />
+                <a href="mailto:priyankapolly@gmail.com" className="hover:text-pink-300 underline font-semibold">
+                  priyankapolly@gmail.com
                 </a>
               </li>
               <li className="text-xs text-gray-400 pt-2">
