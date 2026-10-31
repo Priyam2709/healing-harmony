@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     });
 
     let deliveredViaWeb3 = false;
-    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY || "70d086db-1237-46d1-9dc8-20ea481fcd3f";
 
     if (accessKey) {
       const emailContent = `
