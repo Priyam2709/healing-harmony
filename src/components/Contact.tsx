@@ -158,24 +158,53 @@ Please let me know the upcoming available slots!`;
     setLastAction("email");
 
     try {
-      const apiResult = await submitToApi();
-      setSubmitStatus("success");
+      // 1. Send direct email to Dr. Priyanka's inbox via Web3Forms
+      const web3FormData = new FormData();
+      web3FormData.append("access_key", "70d086db-1237-46d1-9dc8-20ea481fcd3f");
+      web3FormData.append("subject", `Healing Harmony: New Session Request from ${formData.name} (${formData.service})`);
+      web3FormData.append("from_name", "Healing Harmony Wellness Club");
+      web3FormData.append("name", formData.name);
+      web3FormData.append("phone", formData.phone);
+      web3FormData.append("email", formData.email || "Not provided");
+      web3FormData.append("service", formData.service);
+      web3FormData.append("platform", formData.platform);
+      web3FormData.append("time_slot", formData.timeSlot);
+      web3FormData.append("message", constructEmailBody());
 
-      // If automated email was NOT delivered directly by server, open webmail
-      if (!apiResult?.emailDelivered) {
+      const web3Response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: web3FormData,
+      });
+
+      const web3Result = await web3Response.json();
+
+      // 2. Also log internally to Next.js API
+      submitToApi();
+
+      if (web3Result?.success) {
+        setEmailDeliveredDirectly(true);
+        setSubmitStatus("success");
+      } else {
+        // Fallback: If Web3Forms returned an issue, trigger Gmail Web
+        console.warn("Web3Forms issue, launching webmail fallback:", web3Result);
+        setSubmitStatus("success");
         const subject = encodeURIComponent(`Session Inquiry: ${formData.service} - ${formData.name}`);
         const body = encodeURIComponent(constructEmailBody());
         const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${TARGET_EMAIL}&su=${subject}&body=${body}`;
         
-        // Try opening Gmail web in a new tab first (works universally without local mail apps)
         const newTab = window.open(gmailUrl, "_blank", "noopener,noreferrer");
         if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
-          // Fallback to mailto if popups are blocked
           window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
         }
       }
     } catch (error) {
-      setSubmitStatus("error");
+      console.error("Email submission error:", error);
+      // Fallback on error to ensure client never gets stuck
+      setSubmitStatus("success");
+      const subject = encodeURIComponent(`Session Inquiry: ${formData.service} - ${formData.name}`);
+      const body = encodeURIComponent(constructEmailBody());
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${TARGET_EMAIL}&su=${subject}&body=${body}`;
+      window.open(gmailUrl, "_blank", "noopener,noreferrer");
     } finally {
       setIsSubmitting(false);
     }
