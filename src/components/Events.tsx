@@ -71,7 +71,8 @@ export default function Events() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl font-bold font-outfit text-dark-green mb-4 leading-tight"
           >
-            Events &amp; Workshops <span className="text-primary-pink">Organized by Dr. Priyanka</span>
+            {"Events & Workshops "}
+            <span className="text-primary-pink">Organized by Dr. Priyanka</span>
           </motion.h2>
 
           <motion.p

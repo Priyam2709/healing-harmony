@@ -159,7 +159,8 @@ export default function About() {
               Exclusive Video Masterclasses
             </span>
             <h3 className="font-outfit text-2xl sm:text-3xl md:text-4xl font-bold text-dark-green">
-              Her Personal Journey &amp; <span className="text-primary-pink">Life Wisdom</span>
+              {"Her Personal Journey & "}
+              <span className="text-primary-pink">Life Wisdom</span>
             </h3>
             <p className="text-gray-600 text-sm sm:text-base mt-2">
               Watch Dr. Priyanka Srivastava explain her transformative journey into naturopathy and share deep life advice for lasting peace.

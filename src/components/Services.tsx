@@ -178,7 +178,8 @@ export default function Services() {
             className="text-3xl sm:text-4xl md:text-5xl font-bold font-outfit text-dark-green mb-4 leading-tight"
           >
             Empowering Your <span className="text-primary-pink">Mind</span>,{" "}
-            <span className="text-primary-green">Body</span> &amp; Soul
+            <span className="text-primary-green">Body</span>
+            {" & Soul"}
           </motion.h2>
 
           <motion.p

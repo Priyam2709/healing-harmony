@@ -36,7 +36,7 @@ export default function Hero() {
             <span className="text-primary-pink underline decoration-pink-300 decoration-wavy underline-offset-8">
               Emotional Healing
             </span>
-            , Yoga &amp; Counselling
+            {", Yoga & Counselling"}
           </motion.h1>
           
           <motion.p 
