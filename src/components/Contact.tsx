@@ -109,7 +109,7 @@ Please let me know the upcoming available slots!`;
     await submitToApi();
 
     const formattedText = encodeURIComponent(constructMessageText());
-    const whatsappUrl = `https://wa.me/918400805288?text=${formattedText}`;
+    const whatsappUrl = `https://wa.me/919214426091?text=${formattedText}`;
 
     setIsSubmitting(false);
     setSubmitStatus("success");
@@ -145,7 +145,7 @@ Please let me know the upcoming available slots!`;
       // Also trigger mailto fallback for direct client interaction
       const subject = encodeURIComponent(`Session Inquiry: ${formData.service} - ${formData.name}`);
       const body = encodeURIComponent(constructMessageText());
-      window.location.href = `mailto:8400805288@healingharmony.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:9214426091@healingharmony.com?subject=${subject}&body=${body}`;
     } catch (error) {
       setSubmitStatus("error");
     } finally {
@@ -192,7 +192,7 @@ Please let me know the upcoming available slots!`;
             <div className="space-y-4 mb-10">
               {/* WhatsApp / Phone */}
               <a
-                href="https://wa.me/918400805288"
+                href="https://wa.me/919214426091"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-5 rounded-2xl bg-white border border-emerald-100 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all flex items-center gap-4 group"
@@ -205,7 +205,7 @@ Please let me know the upcoming available slots!`;
                     Instant WhatsApp &amp; Call
                   </div>
                   <div className="text-lg font-bold text-dark-green group-hover:text-emerald-700 transition-colors">
-                    +91 8400805288
+                    +91 9214426091
                   </div>
                 </div>
                 <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-emerald-600" />
@@ -472,7 +472,7 @@ Please let me know the upcoming available slots!`;
                       exit={{ opacity: 0 }}
                       className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm"
                     >
-                      Could not submit online form. Please contact directly via WhatsApp at <strong>+91 8400805288</strong>.
+                      Could not submit online form. Please contact directly via WhatsApp at <strong>+91 9214426091</strong>.
                     </motion.div>
                   )}
                 </AnimatePresence>

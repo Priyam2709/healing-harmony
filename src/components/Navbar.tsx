@@ -63,7 +63,7 @@ export default function Navbar() {
 
             {/* Direct WhatsApp Callout Button */}
             <a
-              href="https://wa.me/918400805288"
+              href="https://wa.me/919214426091"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-emerald-600 text-white px-4 py-2 rounded-full hover:bg-emerald-700 transition-all shadow-sm flex items-center gap-1.5 text-xs font-bold"
@@ -84,7 +84,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
             <a
-              href="https://wa.me/918400805288"
+              href="https://wa.me/919214426091"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-emerald-600 text-white p-2 rounded-full text-xs font-bold"
@@ -133,14 +133,14 @@ export default function Navbar() {
                   Book Online Session
                 </a>
                 <a
-                  href="https://wa.me/918400805288"
+                  href="https://wa.me/919214426091"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
                   className="block w-full text-center py-2.5 bg-emerald-600 text-white font-bold text-sm rounded-xl shadow flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4 fill-current" />
-                  <span>Chat on WhatsApp (8400805288)</span>
+                  <span>Chat on WhatsApp (9214426091)</span>
                 </a>
               </div>
             </div>

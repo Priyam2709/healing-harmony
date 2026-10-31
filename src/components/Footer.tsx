@@ -41,7 +41,7 @@ export default function Footer() {
                 <TwitterIcon />
               </a>
               <a
-                href="https://wa.me/918400805288"
+                href="https://wa.me/919214426091"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-emerald-600 flex items-center justify-center hover:bg-emerald-500 transition-colors"
@@ -80,8 +80,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <a href="https://wa.me/918400805288" className="hover:text-emerald-300 underline font-semibold">
-                  WhatsApp: +91 8400805288
+                <a href="https://wa.me/919214426091" className="hover:text-emerald-300 underline font-semibold">
+                  WhatsApp: +91 9214426091
                 </a>
               </li>
               <li className="text-xs text-gray-400 pt-2">

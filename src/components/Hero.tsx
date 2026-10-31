@@ -64,13 +64,13 @@ export default function Hero() {
             </a>
 
             <a
-              href="https://wa.me/918400805288"
+              href="https://wa.me/919214426091"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-7 py-4 bg-emerald-600 text-white rounded-full font-bold text-sm sm:text-base hover:bg-emerald-700 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
-              <span>WhatsApp (8400805288)</span>
+              <span>WhatsApp (9214426091)</span>
             </a>
           </motion.div>
 

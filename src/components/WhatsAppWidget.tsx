@@ -5,7 +5,7 @@ import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppWidget() {
   const whatsappUrl =
-    "https://wa.me/918400805288?text=" +
+    "https://wa.me/919214426091?text=" +
     encodeURIComponent("Namaste Dr. Priyanka, I would like to inquire about your online wellness sessions.");
 
   return (
