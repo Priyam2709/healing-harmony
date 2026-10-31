@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Log the inquiry
+    // Log the inquiry to server console
     console.log("=== [Healing Harmony New Session Inquiry] ===");
     console.log({
       name,
@@ -26,13 +26,61 @@ export async function POST(request: Request) {
       timestamp: new Date().toISOString(),
     });
 
-    // In a production deployment, this can be connected to Resend, Nodemailer, Twilio, or Google Sheets API
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    let deliveredViaWeb3 = false;
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+
+    if (accessKey) {
+      const emailContent = `
+New Session Inquiry for Healing Harmony:
+• Client Name: ${name}
+• Phone / WhatsApp: ${phone}
+• Client Email: ${email || "Not provided"}
+• Selected Service: ${service}
+• Preferred Online Platform: ${platform}
+• Preferred Time Slot: ${timeSlot}
+• Goals / Details: ${message || "None provided"}
+      `.trim();
+
+      try {
+        const web3Response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: `Healing Harmony: New Session Request from ${name} (${service})`,
+            from_name: "Healing Harmony Wellness Club",
+            name,
+            email: email || "noreply@healingharmony.com",
+            phone,
+            service,
+            platform,
+            time_slot: timeSlot,
+            message: emailContent,
+          }),
+        });
+
+        const web3Result = await web3Response.json();
+        if (web3Result.success) {
+          deliveredViaWeb3 = true;
+          console.log("Email delivered successfully via Web3Forms.");
+        } else {
+          console.warn("Web3Forms delivery warning:", web3Result);
+        }
+      } catch (err) {
+        console.error("Failed to forward to Web3Forms:", err);
+      }
+    }
 
     return NextResponse.json(
       {
         success: true,
-        message: "Inquiry registered successfully. Connecting you to Dr. Priyanka.",
+        emailDelivered: deliveredViaWeb3,
+        message: deliveredViaWeb3
+          ? "Inquiry delivered directly to Dr. Priyanka's inbox!"
+          : "Inquiry registered successfully.",
       },
       { status: 200 }
     );

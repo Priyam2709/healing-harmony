@@ -45,6 +45,7 @@ export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [lastAction, setLastAction] = useState<"whatsapp" | "email" | null>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [emailDeliveredDirectly, setEmailDeliveredDirectly] = useState(false);
 
   // Listen to select-service event from Services component
   useEffect(() => {
@@ -105,13 +106,19 @@ Please let me know the upcoming available slots!`;
   // Submit to background API route
   const submitToApi = async () => {
     try {
-      await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+      const data = await response.json();
+      if (data?.emailDelivered) {
+        setEmailDeliveredDirectly(true);
+      }
+      return data;
     } catch (err) {
       console.error("Failed to submit to backend API:", err);
+      return null;
     }
   };
 
@@ -151,18 +158,21 @@ Please let me know the upcoming available slots!`;
     setLastAction("email");
 
     try {
-      await submitToApi();
+      const apiResult = await submitToApi();
       setSubmitStatus("success");
 
-      const subject = encodeURIComponent(`Session Inquiry: ${formData.service} - ${formData.name}`);
-      const body = encodeURIComponent(constructEmailBody());
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${TARGET_EMAIL}&su=${subject}&body=${body}`;
-      
-      // Try opening Gmail web in a new tab first (works universally without local mail apps)
-      const newTab = window.open(gmailUrl, "_blank", "noopener,noreferrer");
-      if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
-        // Fallback to mailto if popups are blocked
-        window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
+      // If automated email was NOT delivered directly by server, open webmail
+      if (!apiResult?.emailDelivered) {
+        const subject = encodeURIComponent(`Session Inquiry: ${formData.service} - ${formData.name}`);
+        const body = encodeURIComponent(constructEmailBody());
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${TARGET_EMAIL}&su=${subject}&body=${body}`;
+        
+        // Try opening Gmail web in a new tab first (works universally without local mail apps)
+        const newTab = window.open(gmailUrl, "_blank", "noopener,noreferrer");
+        if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
+          // Fallback to mailto if popups are blocked
+          window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
+        }
       }
     } catch (error) {
       setSubmitStatus("error");
@@ -481,16 +491,20 @@ Please let me know the upcoming available slots!`;
                       <div className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                         <div>
-                          <strong className="text-base text-emerald-900">Inquiry Initiated Successfully!</strong>
+                          <strong className="text-base text-emerald-900">
+                            {emailDeliveredDirectly ? "Message Delivered Directly!" : "Inquiry Initiated Successfully!"}
+                          </strong>
                           <p className="text-xs text-emerald-700 mt-1 leading-relaxed">
                             {lastAction === "whatsapp"
                               ? "Your WhatsApp chat was opened with the pre-filled message. Dr. Priyanka will reply shortly!"
+                              : emailDeliveredDirectly
+                              ? "Your session request has been sent directly to Dr. Priyanka's inbox. She will get in touch with you shortly!"
                               : `We opened a pre-filled email draft to ${TARGET_EMAIL}. If your browser blocked the window or you don't have an email app installed, click below:`}
                           </p>
                         </div>
                       </div>
 
-                      {lastAction === "email" && (
+                      {lastAction === "email" && !emailDeliveredDirectly && (
                         <div className="pt-2 flex flex-wrap gap-2 border-t border-emerald-200/60 mt-1">
                           <a
                             href={`https://mail.google.com/mail/?view=cm&fs=1&to=${TARGET_EMAIL}&su=${encodeURIComponent(`Session Inquiry: ${formData.service} - ${formData.name}`)}&body=${encodeURIComponent(constructEmailBody())}`}
