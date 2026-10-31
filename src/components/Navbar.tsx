@@ -22,6 +22,7 @@ export default function Navbar() {
     { href: "#video-reviews", label: "Video Reviews" },
     { href: "#sessions", label: "Live Sessions" },
     { href: "#about", label: "About" },
+    { href: "#events", label: "Events" },
     { href: "#contact", label: "Book Session" },
   ];
 

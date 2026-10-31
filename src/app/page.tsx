@@ -4,6 +4,7 @@ import Services from "@/components/Services";
 import VideoReviews from "@/components/VideoReviews";
 import SessionGallery from "@/components/SessionGallery";
 import About from "@/components/About";
+import Events from "@/components/Events";
 import Contact from "@/components/Contact";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import Footer from "@/components/Footer";
@@ -17,6 +18,7 @@ export default function Home() {
       <VideoReviews />
       <SessionGallery />
       <About />
+      <Events />
       <Contact />
       <WhatsAppWidget />
       <Footer />

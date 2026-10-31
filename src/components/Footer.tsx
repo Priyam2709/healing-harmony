@@ -60,6 +60,7 @@ export default function Footer() {
               <li><a href="#video-reviews" className="text-gray-300 hover:text-white transition-colors">Client Video Stories</a></li>
               <li><a href="#sessions" className="text-gray-300 hover:text-white transition-colors">Live Session Previews</a></li>
               <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Dr. Priyanka</a></li>
+              <li><a href="#events" className="text-gray-300 hover:text-white transition-colors">Organized Events</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Book Online Session</a></li>
             </ul>
           </div>
