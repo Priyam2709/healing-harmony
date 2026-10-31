@@ -230,9 +230,27 @@ Please let me know the upcoming available slots!`;
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-50 text-primary-pink font-semibold text-sm mb-6 border border-pink-100">
-              <Sparkles className="w-4 h-4" />
-              Easy Online Booking
+            {/* Doctor Profile Banner */}
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm mb-8">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-emerald-300 shadow-sm flex-shrink-0">
+                <img
+                  src="/images/dr-priyanka-srivastava.jpg"
+                  alt="Dr. Priyanka Srivastava"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-pink-50 text-primary-pink font-semibold text-xs mb-1 border border-pink-100">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  Direct Consultation
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold font-outfit text-dark-green leading-tight">
+                  Dr. Priyanka Srivastava
+                </h3>
+                <p className="text-xs text-primary-green font-semibold mt-0.5">
+                  Yog n Naturopathy Expert • Holistic Health Coach
+                </p>
+              </div>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-green font-outfit mb-3 leading-tight">

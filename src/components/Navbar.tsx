@@ -35,10 +35,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           
-          {/* Brand Logo */}
+          {/* Brand Logo & Profile Avatar */}
           <a href="#home" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-pink-100/80 flex items-center justify-center text-primary-pink group-hover:scale-110 transition-transform">
-              <Leaf className="h-5 w-5" />
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-300 shadow-sm group-hover:scale-105 transition-transform flex-shrink-0">
+              <img
+                src="/images/dr-priyanka-srivastava.jpg"
+                alt="Dr. Priyanka Srivastava"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div>
               <span className="font-outfit text-xl sm:text-2xl font-bold text-dark-green block leading-none">

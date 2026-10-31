@@ -15,10 +15,17 @@ export default function WhatsAppWidget() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-lg border border-emerald-100 text-xs font-semibold text-dark-green"
+        className="hidden sm:flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-lg border border-emerald-100 text-xs font-semibold text-dark-green"
       >
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-        <span>Chat on WhatsApp</span>
+        <img
+          src="/images/dr-priyanka-srivastava.jpg"
+          alt="Dr. Priyanka Srivastava"
+          className="w-7 h-7 rounded-full object-cover border border-emerald-300"
+        />
+        <div className="flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Chat with Dr. Priyanka</span>
+        </div>
       </motion.div>
 
       {/* Floating Action Button */}
