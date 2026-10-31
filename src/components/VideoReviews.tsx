@@ -43,7 +43,7 @@ const videoReviews: VideoReview[] = [
     duration: "Live Clip",
     rating: 5,
     thumbnail: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop",
-    videoUrl: "/videos/bollywood-yoga-session-2.mp4",
+    videoUrl: "/videos/bollywood-yoga-session-7.mp4",
     sessionMode: "Daily Live Zoom Batch",
   },
   {
@@ -79,10 +79,10 @@ const videoReviews: VideoReview[] = [
     serviceCategory: "Negative Mindset to Positive",
     categoryTag: "healing",
     quote: "Living abroad with high stress, her online sessions were a lifeline. She taught me practical cognitive shifts that reshaped how I view every challenge.",
-    duration: "3:55",
+    duration: "Live Clip",
     rating: 5,
     thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+    videoUrl: "/videos/bollywood-yoga-session-9.mp4",
     sessionMode: "International Zoom Consultation",
   },
   {
@@ -95,7 +95,7 @@ const videoReviews: VideoReview[] = [
     duration: "Live Clip",
     rating: 5,
     thumbnail: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop",
-    videoUrl: "/videos/bollywood-yoga-session-3.mp4",
+    videoUrl: "/videos/bollywood-yoga-session-8.mp4",
     sessionMode: "Live Online Family Session",
   },
 ];

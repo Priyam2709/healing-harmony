@@ -100,11 +100,11 @@ export default function Hero() {
             {/* Visual Image */}
             <div className="absolute inset-0 m-4 rounded-2xl overflow-hidden bg-gradient-to-tr from-light-pink to-light-green">
               <img 
-                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop" 
-                alt="Holistic Yoga & Meditation" 
-                className="w-full h-full object-cover opacity-90"
+                src="/images/dr-priyanka-srivastava.jpg" 
+                alt="Dr. Priyanka Srivastava - Yog n Naturopathy Expert & Holistic Health Coach" 
+                className="w-full h-full object-cover object-top opacity-95"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-green/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-green/80 via-dark-green/15 to-transparent" />
               
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <div className="text-xs uppercase tracking-widest text-emerald-300 font-bold mb-1">

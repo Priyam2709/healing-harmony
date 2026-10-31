@@ -23,9 +23,9 @@ export default function About() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Lotus Flower representing Mind Body Soul" 
-                  className="w-full h-full object-cover"
+                  src="/images/dr-priyanka-srivastava.jpg" 
+                  alt="Dr. Priyanka Srivastava - Yog n Naturopathy Expert & Holistic Health Coach" 
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
               

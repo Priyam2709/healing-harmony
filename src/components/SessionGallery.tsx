@@ -62,6 +62,28 @@ const sessionVideos: SessionVideo[] = [
     thumbnail: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop",
     videoUrl: "/videos/bollywood-yoga-session-4.mp4",
   },
+  {
+    id: "session-5",
+    title: "Morning Bollywood Groove & Spine Flexibility Batch",
+    category: "Morning Mobility & Yoga",
+    duration: "Live Session Clip",
+    platform: "Zoom",
+    format: "Group Live Batch",
+    description: "Gentle morning joint activations and rhythmic movement to popular music, tailored for building daily consistency.",
+    thumbnail: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=800&auto=format&fit=crop",
+    videoUrl: "/videos/bollywood-yoga-session-5.mp4",
+  },
+  {
+    id: "session-6",
+    title: "Zesty Bollywood Asana Aerobics & Stamina Boost",
+    category: "Cardio Stamina & Flow",
+    duration: "Live Session Clip",
+    platform: "Google Meet",
+    format: "Group Live Batch",
+    description: "High-vibe virtual session for women and homemakers combining cheerful choreography with authentic yogic breathing.",
+    thumbnail: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
+    videoUrl: "/videos/bollywood-yoga-session-6.mp4",
+  },
 ];
 
 export default function SessionGallery() {
@@ -103,7 +125,7 @@ export default function SessionGallery() {
         </div>
 
         {/* Sessions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sessionVideos.map((session, index) => (
             <motion.div
               key={session.id}
